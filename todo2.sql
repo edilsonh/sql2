@@ -32,4 +32,4 @@ INSERT INTO todolist (title, priority, created_at) VALUES ('finish', 1, NOW());
 SELECT * FROM todolist WHERE priority = 3 && completed_at IS NULL;
 SELECT priority, COUNT(id) FROM todolist WHERE completed_at IS NULL GROUP BY priority;
 SELECT * FROM todolist WHERE created_at > '2017-07-18' ORDER BY priority;
-SELECT * FROM todolist WHERE completed_at IS NULL ORDER BY created_at, priority;
+SELECT * FROM todolist WHERE completed_at IS NULL ORDER BY created_at, priority LIMIT 1;
