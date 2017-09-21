@@ -27,9 +27,9 @@ INSERT INTO todolist (title, priority, created_at) VALUES ('read', 1, NOW());
 INSERT INTO todolist (title, details, priority, created_at) VALUES ('edit', 'make corrections to paper', 3, NOW());
 INSERT INTO todolist (title, priority, created_at) VALUES ('walk', 1, NOW());
 INSERT INTO todolist (title, details, priority, created_at) VALUES ('soccer', 'goto my soccer game', 1, NOW());
-INSERT INTO todolist (title, priority, created_at) VALUES ('finish', 1, NOW());
+INSERT INTO todolist (title, priority, created_at) VALUES ('finish', 5, '2017-08-21 11:32:14.811146');
 
-SELECT * FROM todolist WHERE priority = 3 && completed_at IS NULL;
-SELECT priority, COUNT(id) FROM todolist WHERE completed_at IS NULL GROUP BY priority;
-SELECT * FROM todolist WHERE created_at > '2017-07-18' ORDER BY priority;
+SELECT * FROM todolist WHERE priority = 3 AND completed_at IS NULL;
+SELECT priority, COUNT(*) AS incompleted FROM todolist WHERE completed_at IS NULL GROUP BY priority;
+SELECT * FROM todolist WHERE created_at > date('now') - interval '30 day' ORDER BY priority;
 SELECT * FROM todolist WHERE completed_at IS NULL ORDER BY created_at, priority LIMIT 1;
