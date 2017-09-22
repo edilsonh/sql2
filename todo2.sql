@@ -31,5 +31,5 @@ INSERT INTO todolist (title, priority, created_at) VALUES ('finish', 5, '2017-08
 
 SELECT * FROM todolist WHERE priority = 3 AND completed_at IS NULL;
 SELECT priority, COUNT(*) AS incompleted FROM todolist WHERE completed_at IS NULL GROUP BY priority;
-SELECT * FROM todolist WHERE created_at > date('now') - interval '30 day' ORDER BY priority;
+SELECT priority, COUNT(*) AS created_in_the_last_30_days FROM todolist WHERE created_at > date('now') - interval '30 day' GROUP BY priority;
 SELECT * FROM todolist WHERE completed_at IS NULL ORDER BY created_at, priority LIMIT 1;
